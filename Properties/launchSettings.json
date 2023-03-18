@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LU-Decomposition": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Kiril\\C#\\WinForms\\LU-Decomposition"
+    }
+  }
+}
