@@ -2,7 +2,7 @@
 {
     internal class SquareMatrix : ICloneable
     {
-        private double[][] _matrix = null!;
+        private double[][] _matrix;
         private readonly int _size;
 
         public double this[int i, int j] { get => _matrix[i][j]; set => _matrix[i][j] = value; }
@@ -19,15 +19,23 @@
             _size = n;
             _matrix = Enumerable.Range(0, _size).Select(_ => new double[_size]).ToArray();
         }
-        public SquareMatrix (string? path = null)
+        //public SquareMatrix (string? path = null)
+        //{
+        //    if (path == null) throw new ArgumentNullException(nameof(path));
+        //    using StreamReader reader = new StreamReader(path);
+        //    int row = 0;
+        //    _size = int.Parse(reader.ReadLine()!);
+        //    _matrix = Enumerable.Range(0, _size).Select(_ => new double[_size]).ToArray();
+        //    while (!reader.EndOfStream) _matrix[row++] = reader.ReadLine()!.Split(' ',StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
+        //}
+        public SquareMatrix(string str)
         {
-            if (path == null) throw new ArgumentNullException(nameof(path));
-            using StreamReader reader = new StreamReader(path);
-            int row = 0;
-            _size = int.Parse(reader.ReadLine()!);
-            _matrix = Enumerable.Range(0, _size).Select(_ => new double[_size]).ToArray();
-            while (!reader.EndOfStream) _matrix[row++] = reader.ReadLine()!.Split(' ',StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
+            _matrix = str.Split('\n',StringSplitOptions.RemoveEmptyEntries)
+                .Select(str => str.Split(' ',StringSplitOptions.RemoveEmptyEntries)
+                .Select(elem => double.Parse(elem)).ToArray()).ToArray();
+            _size = _matrix.Length;
         }
+
         public override string ToString() => $"{string.Join("\n",Enumerable.Range(0,_size).Select(RowToString))}";
         public string RowToString(int i) => string.Join(" ",Enumerable.Range(0, _matrix[i].Length).Select(j => this[i,j]));
         public object Clone() => new SquareMatrix (_matrix);

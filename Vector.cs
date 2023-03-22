@@ -8,11 +8,7 @@
         public Vector(int n = 0) => _content = new double[n];
         public Vector(double[]? content) => Content = content;
 
-        public Vector(string line, int size)
-        {
-            _content = new double[size];
-            _content = line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
-        }
+        public Vector(string line) => _content = line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
         public double this[int i ] { get => _content![i]; set => _content![i] = value; }
         public override string ToString() => $"{string.Join(" ", _content!)}";
         public object Clone() => new Vector(Content);

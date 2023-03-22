@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pnlMenu = new Panel();
             btnMinimaze = new Button();
             btnMaximaze = new Button();
@@ -42,10 +44,20 @@
             btn2 = new Button();
             btn1 = new Button();
             mainText = new RichTextBox();
-            typeText = new RichTextBox();
+            vectorInput = new TextBox();
+            matrixInput = new RichTextBox();
+            label1 = new Label();
+            label2 = new Label();
+            panel3 = new Panel();
+            panel5 = new Panel();
+            btnSave = new Button();
+            errorProvider1 = new ErrorProvider(components);
             pnlMenu.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // pnlMenu
@@ -239,37 +251,115 @@
             mainText.BackColor = Color.FromArgb(32, 32, 32);
             mainText.BorderStyle = BorderStyle.FixedSingle;
             mainText.Cursor = Cursors.No;
-            mainText.Dock = DockStyle.Bottom;
+            mainText.Dock = DockStyle.Top;
             mainText.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             mainText.ForeColor = Color.White;
-            mainText.Location = new Point(147, 129);
+            mainText.Location = new Point(147, 80);
             mainText.Name = "mainText";
             mainText.ReadOnly = true;
-            mainText.Size = new Size(703, 386);
+            mainText.Size = new Size(703, 292);
             mainText.TabIndex = 7;
             mainText.Text = "Content...";
             // 
-            // typeText
+            // vectorInput
             // 
-            typeText.BackColor = Color.FromArgb(32, 32, 32);
-            typeText.BorderStyle = BorderStyle.FixedSingle;
-            typeText.Cursor = Cursors.No;
-            typeText.Dock = DockStyle.Top;
-            typeText.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            typeText.ForeColor = Color.White;
-            typeText.Location = new Point(147, 80);
-            typeText.Name = "typeText";
-            typeText.ReadOnly = true;
-            typeText.Size = new Size(703, 50);
-            typeText.TabIndex = 8;
-            typeText.Text = "Type of result...";
+            vectorInput.BackColor = Color.FromArgb(60, 60, 60);
+            vectorInput.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            vectorInput.ForeColor = SystemColors.Window;
+            vectorInput.Location = new Point(28, 39);
+            vectorInput.Name = "vectorInput";
+            vectorInput.Size = new Size(216, 30);
+            vectorInput.TabIndex = 0;
+            vectorInput.Text = "1 5 12\r\n";
+            vectorInput.Click += vectorInput_Click;
+            vectorInput.Validating += vectorInput_Validating;
+            vectorInput.Validated += vectorInput_Validated;
+            // 
+            // matrixInput
+            // 
+            matrixInput.BackColor = Color.FromArgb(60, 60, 60);
+            matrixInput.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            matrixInput.ForeColor = Color.White;
+            matrixInput.Location = new Point(280, 39);
+            matrixInput.Name = "matrixInput";
+            matrixInput.Size = new Size(165, 94);
+            matrixInput.TabIndex = 1;
+            matrixInput.Text = "-1 1 0\n0 2 1\n-1 5 3\n\n\n\n";
+            matrixInput.Click += matrixInput_Click;
+            matrixInput.TextChanged += matrixInput_TextChanged;
+            matrixInput.Validating += matrixInput_Validating;
+            matrixInput.Validated += matrixInput_Validated;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(280, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(180, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Elements of matrix:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.FlatStyle = FlatStyle.Flat;
+            label2.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(28, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(216, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Vector of free members:";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(matrixInput);
+            panel3.Controls.Add(vectorInput);
+            panel3.Dock = DockStyle.Left;
+            panel3.Location = new Point(147, 372);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(528, 143);
+            panel3.TabIndex = 8;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(btnSave);
+            panel5.Location = new Point(675, 372);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(175, 143);
+            panel5.TabIndex = 9;
+            // 
+            // btnSave
+            // 
+            btnSave.BackColor = Color.FromArgb(60, 60, 60);
+            btnSave.Dock = DockStyle.Bottom;
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Cascadia Mono SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(0, 74);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(175, 69);
+            btnSave.TabIndex = 5;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.BlinkRate = 0;
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorProvider1.ContainerControl = this;
             // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(32, 32, 32);
             ClientSize = new Size(850, 515);
-            Controls.Add(typeText);
+            Controls.Add(panel5);
+            Controls.Add(panel3);
             Controls.Add(mainText);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -277,12 +367,17 @@
             Font = new Font("Gadugi", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             pnlMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -302,6 +397,13 @@
         private Button btn2;
         private Button btn1;
         private RichTextBox mainText;
-        private RichTextBox typeText;
+        private TextBox vectorInput;
+        private RichTextBox matrixInput;
+        private Label label1;
+        private Label label2;
+        private Panel panel3;
+        private Panel panel5;
+        private Button btnSave;
+        private ErrorProvider errorProvider1;
     }
 }
