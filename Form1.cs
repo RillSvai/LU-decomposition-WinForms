@@ -87,7 +87,7 @@ namespace LU_Decomposition
         }
         public bool ValidVector(string vector, out string errorMsg)
         {
-            if (!Regex.IsMatch(vector, @"^\s*\d+(\s+\d+)*\s*$") || vector == string.Empty)
+            if (!Regex.IsMatch(vector, @"^\s*(-)?\d+(\s+(-)?\d+)*\s*$") || vector == string.Empty)
             {
                 errorMsg = "Invalid input format!";
                 return false;
@@ -120,7 +120,7 @@ namespace LU_Decomposition
                 return true;
 
             }
-            if (!Regex.IsMatch(matrix, @"^\s*\d+(\s+\d+)*\s*\n*$") || matrix == string.Empty)
+            if (!Regex.IsMatch(matrix, @"^\s*(-)?\d+(\s+(-)?\d+)*\s*\n*$") || matrix == string.Empty)
             {
                 errorMsg = "Invalid input format!";
                 return false;
@@ -133,6 +133,11 @@ namespace LU_Decomposition
             obj.FillingLU();
             obj.FindTransitJunctions();
             obj.FindJunctions();
+        }
+
+        private void mainText_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

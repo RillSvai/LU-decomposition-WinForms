@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LU-Decomposition", "LU-Decomposition.csproj", "{D65C088B-7163-4D12-8025-1356C9893D7D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "..\Setup1\Setup1.vdproj", "{BD2EEEA5-463F-425A-907E-524C72EEF708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{D65C088B-7163-4D12-8025-1356C9893D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D65C088B-7163-4D12-8025-1356C9893D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D65C088B-7163-4D12-8025-1356C9893D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2EEEA5-463F-425A-907E-524C72EEF708}.Debug|Any CPU.ActiveCfg = Debug
+		{BD2EEEA5-463F-425A-907E-524C72EEF708}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

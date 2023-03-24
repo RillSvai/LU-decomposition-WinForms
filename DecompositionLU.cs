@@ -36,8 +36,10 @@
             {
                 for (int j = 0; j < _LMatrix.Length; j++)
                 {
-                    if (i <= j) _UMatrix[i, j] = _mainMatrix[i, j] - Enumerable.Range(0, i + 1).Select(k => _LMatrix[i, k] * _UMatrix[k, j]).Sum();
-                    else _LMatrix[i, j] = (_mainMatrix[i, j] - Enumerable.Range(0, i + 1).Select(k => _LMatrix[i, k] * _UMatrix[k, j]).Sum()) / _UMatrix[j, j];
+                    if (i <= j) _UMatrix[i, j] = _mainMatrix[i, j] - Enumerable.Range(0, i + 1).
+                            Select(k => _LMatrix[i, k] * _UMatrix[k, j]).Sum();
+                    else _LMatrix[i, j] = (_mainMatrix[i, j] - Enumerable.Range(0, i + 1).
+                            Select(k => _LMatrix[i, k] * _UMatrix[k, j]).Sum()) / _UMatrix[j, j];
                 }
             }
             _determinant = Enumerable.Range(0, _UMatrix.Length).Select(i => _UMatrix[i, i]).Aggregate((x, y) => x * y);
