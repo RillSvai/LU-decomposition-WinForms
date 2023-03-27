@@ -260,6 +260,7 @@
             mainText.Size = new Size(703, 292);
             mainText.TabIndex = 7;
             mainText.Text = "Content...";
+            mainText.TextChanged += mainText_TextChanged;
             // 
             // vectorInput
             // 

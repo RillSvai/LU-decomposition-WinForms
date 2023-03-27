@@ -134,5 +134,10 @@ namespace LU_Decomposition
             obj.FindTransitJunctions();
             obj.FindJunctions();
         }
+
+        private void mainText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
